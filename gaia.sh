@@ -55,7 +55,7 @@ alias ffboot='adb shell reboot'
 alias fffwd='adb forward tcp:6000 localfilesystem:/data/local/debugger-socket'
 
 # logcat with Everything.me highlights
-alias fflogme='adb logcat | grep -E -i "error|query=|feature=|evme\s+.*"'
+alias fflogme='adb logcat | grep -E -i "error|query=|feature=|evme"'
 
 # erase wifi data and reboot
 alias ffwipefy='adb shell rm -r data/misc/wifi && adb shell reboot'
