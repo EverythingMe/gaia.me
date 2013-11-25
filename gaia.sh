@@ -66,6 +66,8 @@ alias ffwipefy='adb shell rm -r data/misc/wifi && adb shell reboot'
 # retrieve the file
 alias ffshot='adb shell /system/bin/screencap -p /sdcard/img.png && adb pull /sdcard/img.png screenshot.png'
 
+# copy device's settings.json to local folder
+alias ffpull-settings='adb pull system/b2g/defaults/settings.json'
 
 ###############################################################################
 # Helpers                                                                     #
