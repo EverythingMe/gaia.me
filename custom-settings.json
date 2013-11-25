@@ -7,5 +7,8 @@
 
   // disable lockscreen
   "lockscreen.enabled": false,
-  "lockscreen.locked": false
+  "lockscreen.locked": false,
+
+  // disable screen timeout
+  "screen.timeout": 0
 }
