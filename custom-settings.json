@@ -1,14 +1,10 @@
 {
-  // remote debugging
   "devtools.debugger.remote-enabled": true,
 
-  // skip the ftu
   "ftu.manifestURL": "",
 
-  // disable lockscreen
   "lockscreen.enabled": false,
   "lockscreen.locked": false,
 
-  // disable screen timeout
   "screen.timeout": 0
 }
