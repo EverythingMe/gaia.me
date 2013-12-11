@@ -6,5 +6,7 @@
   "lockscreen.enabled": false,
   "lockscreen.locked": false,
 
+  "screen.automatic-brightness": false,
+  "screen.brightness": 1,
   "screen.timeout": 0
 }
