@@ -3,6 +3,8 @@
 
   "ftu.manifestURL": "",
 
+  "keyboard.clicksound": false,
+
   "lockscreen.enabled": false,
   "lockscreen.locked": false,
 
