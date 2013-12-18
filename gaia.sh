@@ -26,7 +26,7 @@ alias ga="cd $GAIA_DIR"
 ###############################################################################
 
 # reset gaia
-alias ffreset='cd "$GAIA_DIR" && make reset-gaia && cd -'
+alias ffreset='cd "$GAIA_DIR" && make reset-gaia && cd - && fffwd'
 
 # build the homescreen app twice
 alias ffhs='cd "$GAIA_DIR" && for x in {1..2}; do BUILD_APP_NAME=homescreen make install-gaia; done && cd -'
