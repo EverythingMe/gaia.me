@@ -3,6 +3,8 @@
 
   "ftu.manifestURL": "",
 
+  "keyboard.autocorrect": false,
+  "keyboard.wordsuggestion": false,
   "keyboard.clicksound": false,
 
   "lockscreen.enabled": false,
