@@ -1,4 +1,5 @@
 {
+  "debugger.remote-mode": "adb-devtools",
   "devtools.debugger.remote-enabled": true,
 
   "ftu.manifestURL": "",
