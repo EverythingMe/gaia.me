@@ -58,7 +58,7 @@ alias ffboot='adb shell reboot'
 alias fffwd='adb forward tcp:6000 localfilesystem:/data/local/debugger-socket'
 
 # logcat with Everything.me highlights
-alias fflogme='adb logcat | sed "s/E\/Gecko.*homescreen.gaiamobile.org\/everything.me/evme/g" | grep -E -i "xxx|error|query|feature|session|nativeinfo|evme"'
+alias fflogme='adb logcat | grep -E -i "xxx|error|query|feature|session|nativeinfo|evme|rocketbar"'
 
 # erase wifi data and reboot
 alias ffwipefy='adb shell rm -r data/misc/wifi && adb shell reboot'
@@ -67,7 +67,16 @@ alias ffwipefy='adb shell rm -r data/misc/wifi && adb shell reboot'
 # Note: this method may generate a chunky screenshot. for better quality
 # press 'home' and 'power' buttons simultaneously and then use 'adb pull' to
 # retrieve the file
-alias ffshot='adb shell /system/bin/screencap -p /sdcard/img.png && adb pull /sdcard/img.png screenshot.png'
+#
+# usage: ffshot [filename]
+function screenshot() {
+  FILENAME=$1
+  : ${FILENAME:="screenshot"}
+
+  adb shell /system/bin/screencap -p /sdcard/img.png && adb pull /sdcard/img.png $FILENAME.png
+}
+
+alias ffshot='screenshot'
 
 # copy device's settings.json to local folder
 alias ffpull-settings='adb pull system/b2g/defaults/settings.json'
@@ -79,7 +88,7 @@ alias ffpull-settings='adb pull system/b2g/defaults/settings.json'
 # create a Github PR redirect page
 # an HTML file will be created in the PR_REDIRECT_FILES_DIR directory
 # usage: ffpr <pull-request-id>
-ffpr(){
+function ffpr(){
     [ -z "$1" ] && echo "Usage:
     $ ffpr [pull-request-id]"
     echo "<html><head><title>Redirect to pull request #$1</title><meta http-equiv=\"Refresh\" content=\"2; url=https://github.com/mozilla-b2g/gaia/pull/$1\"/></head><body>Redirect to pull request #$1 </body></html>" > "$PR_REDIRECT_FILES_DIR/redirect to PR $1.html"
