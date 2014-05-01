@@ -8,7 +8,7 @@
 ###############################################################################
 
 # gaia repo
-GAIA_DIR="$HOME"/projects/gaia
+GAIADIR="$HOME"/projects/gaia
 
 # r2b2g repo
 R2D2B2G_DIR="$HOME"/Library/Application\ Support/Firefox/Profiles/1v31ahcl.default/extensions/r2d2b2g\@mozilla.org/
@@ -18,7 +18,7 @@ R2D2B2G_CLEAN_PROFILE_DIR="$HOME"/r2d2b2g-clean-profile/
 # where to create PR redirect files
 PR_REDIRECT_FILES_DIR="$HOME"/Downloads/
 
-alias ga="cd $GAIA_DIR"
+alias ga="cd $GAIADIR"
 
 
 ###############################################################################
@@ -26,19 +26,21 @@ alias ga="cd $GAIA_DIR"
 ###############################################################################
 
 # reset gaia
-alias ffreset='cd "$GAIA_DIR" && make reset-gaia && cd - && fffwd'
+alias ffreset='cd "$GAIADIR" && make reset-gaia && cd - && fffwd'
 
 # build the homescreen app twice
-alias ffhs='cd "$GAIA_DIR" && for x in {1..2}; do BUILD_APP_NAME=homescreen make install-gaia; done && cd -'
+alias ffhs='cd "$GAIADIR" && for x in {1..2}; do BUILD_APP_NAME=homescreen make install-gaia; done && cd -'
 
 # build a DEBUG profile
-alias ffdbuild='cd "$GAIA_DIR" && make clean && DEBUG=1 make && cd -'
+alias ffdbuild='cd "$GAIADIR" && make clean && DEBUG=1 make && cd -'
 
 # launch Nightly with debug profile
-alias ffnightly='/Applications/FirefoxNightly.app/Contents/MacOS/firefox -profile "$GAIA_DIR"/profile-debug'
+alias ffnightly='/Applications/FirefoxNightly.app/Contents/MacOS/firefox -profile "$GAIADIR"/profile-debug'
+
+alias ffunit='ffnightly http://test-agent.gaiamobile.org:8080/'
 
 # launch Firefox simulator with a clean profile and a copy homescreen app
-alias ffsimulator='killall b2g; make clean && make profile && rm -rf "$R2D2B2G_DIR"/profile && cp -R "$R2D2B2G_CLEAN_PROFILE_DIR" "$R2D2B2G_DIR"/profile && cp "$GAIA_DIR"/profile/webapps/homescreen.gaiamobile.org/application.zip "$R2D2B2G_DIR"/profile/webapps/homescreen.gaiamobile.org/ && open /Applications/Firefox.app'
+alias ffsimulator='killall b2g; make clean && make profile && rm -rf "$R2D2B2G_DIR"/profile && cp -R "$R2D2B2G_CLEAN_PROFILE_DIR" "$R2D2B2G_DIR"/profile && cp "$GAIADIR"/profile/webapps/homescreen.gaiamobile.org/application.zip "$R2D2B2G_DIR"/profile/webapps/homescreen.gaiamobile.org/ && open /Applications/Firefox.app'
 
 
 ###############################################################################
