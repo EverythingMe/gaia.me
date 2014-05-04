@@ -7,6 +7,8 @@
 # Setup                                                                       #
 ###############################################################################
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 # gaia repo
 GAIADIR="$HOME"/projects/gaia
 
@@ -19,6 +21,8 @@ R2D2B2G_CLEAN_PROFILE_DIR="$HOME"/r2d2b2g-clean-profile/
 PR_REDIRECT_FILES_DIR="$HOME"/Downloads/
 
 alias ga="cd $GAIADIR"
+alias gat="cd $GAIADIR/tests/python/gaia-ui-tests/gaiatest"
+alias gatest="gat && ipython -i $DIR/gaiatest.me.py && cd -"
 
 
 ###############################################################################
