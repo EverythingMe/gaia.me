@@ -30,22 +30,21 @@ alias gatest="gat && ipython -i $DIR/gaiatest.me.py && cd -"
 ###############################################################################
 
 # reset gaia
-alias ffreset='cd "$GAIADIR" && make reset-gaia && cd - && fffwd'
+alias ffreset='ga && make reset-gaia && cd - && fffwd'
 
 # build the homescreen app twice
-alias ffhs='cd "$GAIADIR" && for x in {1..2}; do BUILD_APP_NAME=homescreen make install-gaia; done && cd -'
+alias ffhs='ga && for x in {1..2}; do BUILD_APP_NAME=homescreen make install-gaia; done && cd -'
 
 # build a DEBUG profile
-alias ffdbuild='cd "$GAIADIR" && make clean && DEBUG=1 make && cd -'
+alias ffdbuild='ga && make clean && DEBUG=1 make && cd -'
 
 # launch Nightly with debug profile
 alias ffnightly='/Applications/FirefoxNightly.app/Contents/MacOS/firefox -profile "$GAIADIR"/profile-debug'
 
 alias ffunit='ffnightly http://test-agent.gaiamobile.org:8080/'
 
-# launch Firefox simulator with a clean profile and a copy homescreen app
-alias ffsimulator='killall b2g; make clean && make profile && rm -rf "$R2D2B2G_DIR"/profile && cp -R "$R2D2B2G_CLEAN_PROFILE_DIR" "$R2D2B2G_DIR"/profile && cp "$GAIADIR"/profile/webapps/homescreen.gaiamobile.org/application.zip "$R2D2B2G_DIR"/profile/webapps/homescreen.gaiamobile.org/ && open /Applications/Firefox.app'
-
+# launch b2g desktop with a clean profile
+alias ffb2g='ga && DESKTOP_SHIMS=1 NOFTU=1 DEBUG=1 make && /Applications/B2G.app/Contents/MacOS/b2g-bin -profile ./profile-debug -start-debugger-server 6000'
 
 ###############################################################################
 # ADB                                                                         #
