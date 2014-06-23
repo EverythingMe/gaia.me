@@ -15,5 +15,13 @@
   "screen.brightness": 1,
   "screen.timeout": 0,
 
-  "rocketbar.enabled": false
+  "audio.volume.alarm": 0,
+  "audio.volume.bt_sco": 0,
+  "audio.volume.dtmf": 0,
+  "audio.volume.content": 0,
+  "audio.volume.master": 0,
+  "audio.volume.notification": 0,
+  "audio.volume.tts": 0,
+  "audio.volume.telephony": 0,
+  "audio.volume.cemaxvol": 0
 }
