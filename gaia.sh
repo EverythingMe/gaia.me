@@ -30,7 +30,7 @@ alias gatest="gat && ipython -i $DIR/gaiatest.me.py && cd -"
 ###############################################################################
 
 # reset gaia
-alias ffreset='ga && make reset-gaia && cd - && fffwd'
+alias ffreset='ga && PRODUCTION=1 make reset-gaia && cd - && fffwd'
 
 # build the homescreen app twice
 alias ffhs='ga && for x in {1..2}; do BUILD_APP_NAME=homescreen make install-gaia; done && cd -'
