@@ -74,14 +74,16 @@ alias ffwipefy='adb shell rm -r data/misc/wifi && adb shell reboot'
 # retrieve the file
 #
 # usage: ffshot [filename]
-function screenshot() {
-  FILENAME=$1
-  : ${FILENAME:="screenshot"}
+function ffscreenshot() {
+  TARGET="/sdcard/ffshot.png"
 
-  adb shell /system/bin/screencap -p /sdcard/img.png && adb pull /sdcard/img.png $FILENAME.png
+  FILENAME=$1
+  : ${FILENAME:="ffshot"}
+
+  adb shell /system/bin/screencap -p $TARGET && adb pull $TARGET $FILENAME.png
 }
 
-alias ffshot='screenshot'
+alias ffshot='ffscreenshot'
 
 # copy device's settings.json to local folder
 alias ffpull-settings='adb pull system/b2g/defaults/settings.json'
