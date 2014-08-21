@@ -21,16 +21,13 @@ R2D2B2G_CLEAN_PROFILE_DIR="$HOME"/r2d2b2g-clean-profile/
 PR_REDIRECT_FILES_DIR="$HOME"/Downloads/
 
 alias ga="cd $GAIADIR"
-alias gat="cd $GAIADIR/tests/python/gaia-ui-tests/gaiatest"
-alias gatest="gat && ipython -i $DIR/gaiatest.me.py && cd -"
-
 
 ###############################################################################
 # Building                                                                    #
 ###############################################################################
 
 # reset gaia
-alias ffreset='ga && PRODUCTION=1 make reset-gaia && cd - && fffwd'
+alias ffreset='ga && GAIA_DISTRIBUTION_DIR=customization make reset-gaia && cd - && fffwd'
 
 # build the homescreen app twice
 alias ffhs='ga && for x in {1..2}; do BUILD_APP_NAME=homescreen make install-gaia; done && cd -'
@@ -38,23 +35,40 @@ alias ffhs='ga && for x in {1..2}; do BUILD_APP_NAME=homescreen make install-gai
 # build a DEBUG profile
 alias ffdbuild='ga && make clean && DEBUG=1 make && cd -'
 
-# launch Nightly with debug profile
-alias ffnightly='/Applications/FirefoxNightly.app/Contents/MacOS/firefox -profile "$GAIADIR"/profile-debug'
+###############################################################################
+# Testing                                                                     #
+###############################################################################
 
-alias ffunit='ffnightly http://test-agent.gaiamobile.org:8080/'
+# unit tests
+alias ffunit="ga && rm -rf profile-gaia-test-b2g/ && ./bin/gaia-test -d"
+
+# marionette test
+alias ffmario="TEST_FILES=$1 ./bin/gaia-marionette --verbose"
+
+# python tests
+alias ffpy="GAIATEST_SKIP_WARNING=1 GAIATEST_ACKNOWLEDGED_RISKS=1 gaiatest --binary=/Applications/B2G.app/Contents/MacOS/b2g $1"
+
+
+###############################################################################
+# TOOLS                                                                       #
+###############################################################################
 
 # launch b2g desktop with a clean profile
 alias ffb2g='ga && DESKTOP_SHIMS=1 NOFTU=1 DEBUG=1 make && /Applications/B2G.app/Contents/MacOS/b2g-bin -profile ./profile-debug -start-debugger-server 6000'
+
+# launch Nightly with debug profile
+alias ffnight='/Applications/FirefoxNightly.app/Contents/MacOS/firefox -profile "$GAIADIR"/profile-debug'
+alias ffnightest='ffnightly http://test-agent.gaiamobile.org:8080/'
 
 ###############################################################################
 # ADB                                                                         #
 ###############################################################################
 
 # start b2g
-alias ffart='adb shell start b2g'
+alias ffon='adb shell start b2g'
 
 # stop b2g
-alias fftop='adb shell stop b2g'
+alias ffoff='adb shell stop b2g'
 
 # reboot
 alias ffboot='adb shell reboot'

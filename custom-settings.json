@@ -1,4 +1,6 @@
 {
+  "developer.menu.enabled": true,
+
   "debugger.remote-mode": "adb-devtools",
   "devtools.debugger.remote-enabled": true,
 
@@ -23,5 +25,9 @@
   "audio.volume.notification": 0,
   "audio.volume.tts": 0,
   "audio.volume.telephony": 0,
-  "audio.volume.cemaxvol": 0
+  "audio.volume.cemaxvol": 0,
+
+  "homescreen.manifestURL": "app://homescreen.gaiamobile.org/manifest.webapp",
+
+  "everythingme.flags.debug": true
 }
