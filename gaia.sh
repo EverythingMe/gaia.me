@@ -43,10 +43,14 @@ alias ffdbuild='ga && make clean && DEBUG=1 make && cd -'
 alias ffunit="ga && rm -rf profile-gaia-test-b2g/ && ./bin/gaia-test -d"
 
 # marionette test
-alias ffmario="TEST_FILES=$1 ./bin/gaia-marionette --verbose"
+function ffmario(){
+  TEST_FILES=$1 ./bin/gaia-marionette --verbose
+}
 
 # python tests
-alias ffpy="GAIATEST_SKIP_WARNING=1 GAIATEST_ACKNOWLEDGED_RISKS=1 gaiatest --binary=/Applications/B2G.app/Contents/MacOS/b2g $1"
+function ffpy(){
+  GAIATEST_SKIP_WARNING=1 GAIATEST_ACKNOWLEDGED_RISKS=1 gaiatest --binary=/Applications/B2G.app/Contents/MacOS/b2g $1
+}
 
 
 ###############################################################################
