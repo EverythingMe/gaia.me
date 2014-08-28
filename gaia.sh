@@ -12,8 +12,11 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # gaia repo
 GAIADIR="$HOME"/projects/gaia
 
+CUSTOMIZATION_DIR="$HOME"/projects/gaia.me/customization
+
 # r2b2g repo
 R2D2B2G_DIR="$HOME"/Library/Application\ Support/Firefox/Profiles/1v31ahcl.default/extensions/r2d2b2g\@mozilla.org/
+
 # r2b2g clean profile
 R2D2B2G_CLEAN_PROFILE_DIR="$HOME"/r2d2b2g-clean-profile/
 
@@ -27,7 +30,7 @@ alias ga="cd $GAIADIR"
 ###############################################################################
 
 # reset gaia
-alias ffreset='ga && GAIA_DISTRIBUTION_DIR=customization make reset-gaia && cd - && fffwd'
+alias ffreset='ga && GAIA_DISTRIBUTION_DIR=$CUSTOMIZATION_DIR make reset-gaia && cd - && fffwd'
 
 # build the homescreen app twice
 alias ffhs='ga && for x in {1..2}; do BUILD_APP_NAME=homescreen make install-gaia; done && cd -'
